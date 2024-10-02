@@ -106,6 +106,20 @@ resource "aws_instance" "dev_node" {
   tags = {
     Name = "dev-node"
   }
-
-  # Run terraform state show aws_instance.dev_node to see the piblic ip needed to SSH into the instance
+  
+  # Ideally we should use user data or a configuration tool (Packer, Ansible) to configure a remote instance
+  # In this situation, we will use a provisioner "local-exec" to configure our instance
+  # The "self" attribute allows us to use instance attributes
+  provisioner "local-exec" {
+    # templatefile is a function that passes a file and var
+    command = templatefile("${var.host_os}-ssh-config.tpl", {
+      hostname = self.public_ip
+      user = "ubuntu"
+      identityfile = "~/.ssh/basic_key"
+    })
+    interpreter = ["bash", "-c"]
+  }
 }
+
+# Now at this point, once we update/replace the dev-node, we can SSH into the instance by using the remote SSH extension that we downloaded
+# We now have a remote dev environment!
