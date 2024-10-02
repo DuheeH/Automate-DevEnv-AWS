@@ -147,3 +147,5 @@ resource "aws_instance" "dev_node" {
     # Conditionals
       # var.host_os == "linux" ? ["bash", "-c"] : ["Powershell", "-Command"]
   # now we can have our dev environment generated dynamically!!
+  # lets also find the instance public IP address dyanmically
+    # add an output that lists the IP address so all we have to do is type in terraform output
