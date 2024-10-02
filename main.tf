@@ -117,9 +117,33 @@ resource "aws_instance" "dev_node" {
       user = "ubuntu"
       identityfile = "~/.ssh/basic_key"
     })
-    interpreter = ["bash", "-c"]
+    interpreter = var.host_os == "linux" ? ["bash", "-c"] : ["Powershell", "-Command"]
   }
 }
 
 # Now at this point, once we update/replace the dev-node, we can SSH into the instance by using the remote SSH extension that we downloaded
 # We now have a remote dev environment!
+
+# Optimizations
+  # Be able to choose ssh config file dynamically based on defintion of host os variable
+    # OS: windows, linux, mac, unix
+    # we will use interpolation syntax so that we can edit as needed
+      # linux -> ${var.host_os}
+    # We will create a variables.tf file to store the variables
+    # Now that we have a varibles, when we run certain terraform commands (plan, destroy, apply), we will need to enter a value for that variable
+      # We want to avoid that because it interrupts automation
+      # We can do so by creating a terraform.tfvars file
+        # This will have precedence, before the variables.tf file and allows automation
+        # We can test by using terraform console
+          # linux in variables.tf and windows in terraform -> console will return windows when trying var.host_os
+      # to override even terraform.tfvars, we write the variables value inline
+        # terraform console -var="host_os=unix"
+      # if we have mutliple .tfvars files, terraform will still run terraform.tfvars precedent
+        # we can override this by writing inline
+          # terraform console -var-file="dev.tfvars
+  # Choose interperter dynamically, not as simple as interpolation syntax
+    # use conditional expressions to choose dynamically based off host OS
+    # powershell vs bash
+    # Conditionals
+      # var.host_os == "linux" ? ["bash", "-c"] : ["Powershell", "-Command"]
+  # now we can have our dev environment generated dynamically!!
