@@ -4,6 +4,14 @@
 
 This terraform project allows users to automate the provisioning and configuration of a developer environment hosted on AWS.
 
+#### Sources
+
+This project was based off of a freeCodeCamp.org project!
+- https://www.youtube.com/watch?v=iRaai1IBlB0
+
+I also relied heavily on the documentation on the Terraform Website
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+
 #### Project Key Languages/Technologies: 
 
 - **AWS**
