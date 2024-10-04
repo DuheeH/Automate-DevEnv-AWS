@@ -2,7 +2,7 @@
 
 #### AWS Hosted Dev Env
 
-This terraform project allows users to automate the provisioning and configuration of a developer environment hosted on AWS.
+This terraform project allows users to automate the provisioning and configuration of a developer environment hosted on AWS. This project will be updated to include a private subnet, bastion host, Load Balancer, and an Autoscaling Group.
 
 #### Sources
 
