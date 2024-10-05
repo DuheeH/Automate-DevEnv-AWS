@@ -9,7 +9,7 @@ This terraform project allows users to automate the provisioning and configurati
 This project was based off of a freeCodeCamp.org project!
 - https://www.youtube.com/watch?v=iRaai1IBlB0
 
-I also relied heavily on the documentation on the Terraform Website
+Documentation on the Terraform Website used for the project.
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 
 #### Project Key Languages/Technologies: 
@@ -28,7 +28,7 @@ I also relied heavily on the documentation on the Terraform Website
 #### Architecture:
 - ![AWSArch](images/AWSArch.png)
 
-#### IaC Tools:
+#### Infrastructure as Code (IaC) Tools:
 - **CloudFormation vs Terraform vs Ansible**: I decided to use Terraform instead of CloudFormation or Ansible because I wanted to use a tool that was capable of managing complex states of multi-cloud infrastructure.
 
 #### Cloud Provider:
