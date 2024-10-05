@@ -32,7 +32,7 @@ Documentation on the Terraform Website used for the project.
 - **CloudFormation vs Terraform vs Ansible**: I decided to use Terraform instead of CloudFormation or Ansible because I wanted to use a tool that was capable of managing complex states of multi-cloud infrastructure.
 
 #### Cloud Provider:
-- **AWS vs Azure vs GCP**: Since I received my AWS Associate Certification and worked most extensively with AWS, I decided to build out this project on AWS instead of Azure or GCP.
+- **AWS vs Azure vs GCP**: AWS dominates the market share for cloud computing and most of the companies I am interested in primarly have AWS in their tech stack. Additionally, since I received my AWS Associate Certification and worked most extensively with AWS, I decided to build out this project on AWS instead of Azure or GCP.
 
 #### Version/State Control:
 
