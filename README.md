@@ -47,7 +47,7 @@ Documentation on the Terraform Website used for the project.
             - show resource_name: this will show you the resource and the current configuration of that resource
                 - example: terraform state show aws_instance.dev_node
         - terraform show
-            - Used when you need detailed information about specific resources or the entire infrastructure.
+            - Used when you need detailed information about specific resources or the entire infrastructure
         - terraform fmt
             - formats the code to look nicer
         - terraform plan
@@ -71,28 +71,28 @@ Documentation on the Terraform Website used for the project.
 #### Linux & Bash Tips
 - **SSH**
     - ssh-keygen -t ed25519
-        - generates a better keypair gen than rsa, this will be saved and used for ssh authentication
+        - creates a better keypair gen than rsa, this will be saved and used for ssh authentication
     - ssh -i  ~/.ssh/basic_key ubuntu@EC2InstancePublicIP
         - this will allow you to SSH into the EC2
-        - make sure the SG ingress CIDR includes your IP
+        - make sure the Security Group (SG) ingress CIDR includes your IP
     - cat ~/.ssh/config
         - displays the contents of the SSH (Secure Shell) configuration file located at ~/.ssh/config.
-        - cat is used to output the contents of a file.
+        - cat allows you to read, concatenate, or write file contents directly to the terminal or to other files
 
-## Folders/Files:
+## Folders/File Structure:
 
 - **main.tf**: Most of the AWS infrastructure resources are defined here
 
-- **providers.tf**: Because Terraform can support different cloud platforms, this file is used to define and configure the cloud platforms that I will be using (AWS).
+- **providers.tf**: Because Terraform can support different cloud platforms, this file is used to define and configure the cloud platforms that I will be using (AWS)
 
-- **userdata.tpl**: Stores a bash script that is used to configure the EC2 instance on boot. The script installs docker and adds the ubuntu user to the docker group.
+- **userdata.tpl**: Stores a bash script that is used to configure the EC2 instance on boot. The script installs docker and adds the ubuntu user to the docker group
 
-- **linux-ssh-config.tpl**: Stores a bash scrip that is used to configure the SSH access to the dev node.
+- **linux-ssh-config.tpl**: Stores a bash script that is used to configure the SSH access to the dev node
 
-- **datasource.tf**: Stores the ubuntu server AMI that we will use in this project. Allows us to avoid hardcoding the AMI into main.tf
+- **datasource.tf**: Stores the ubuntu server Amazon Machine Image (AMI) that we will use in this project. Allows us to avoid hardcoding the AMI into main.tf
 
-- **outputs.tf**: This file is recognized by Terraform and allows you to access specific values after applying a configuration. In this case, it allows us to easily access the public IP address of the dev node with a "terraform output" command.
+- **outputs.tf**: This file is recognized by Terraform and allows you to access specific values after applying a configuration. In this case, it allows us to easily access the public IP address of the dev node with a "terraform output" command
 
-- **terraform.tfvars**: This file is recogized by Terraform and takes highest precedence when setting values to variables in .tf files. In this case, it is used to set the OS of the provisioner's interperter to linux.
+- **terraform.tfvars**: This file is recogized by Terraform and takes highest precedence when setting values to variables in .tf files. In this case, it is used to set the OS of the provisioner's interperter to linux
 
-- **.gitignore**: Contains files and folders that were not to be included in the GitHub Repository.
+- **.gitignore**: Contains files and folders that were not to be included in the GitHub Repository
