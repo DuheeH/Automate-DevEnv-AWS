@@ -1,4 +1,4 @@
-# IaC-AWS-DevEnv
+# Automate-DevEnv-AWS
 
 #### AWS Hosted Dev Env
 
